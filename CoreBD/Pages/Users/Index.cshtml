@@ -1,0 +1,32 @@
+﻿@page
+@model CoreBD.Pages.Users.IndexModel
+@{
+    <h2>Клиенты</h2>
+
+    <a class="btn btn-primary btn-sm" href="/Users/Create">Добавить клиента</a>
+
+    <table class="tabl">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.listClients)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.surname</td>
+
+                    <td>
+                        <a class="btn btn-primary" href="/Users/Edit?id=@item.id">Edit</a>
+                        <a class="btn btn-danger" href="/Users/Delete?id=@item.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
